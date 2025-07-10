@@ -1,0 +1,151 @@
+/* 
+dark - #111c31
+
+green - #66fcf1
+
+gray - #1f2833
+
+black - #0B0C10
+
+tem_color = #1affb3
+*/
+
+.container{
+    -webkit-box-shadow: 4px 4px 17px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 17px -1px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 17px -1px rgba(0,0,0,0.75);
+
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+                         /*-----------------------------------------------header------------------------------------------------- */
+
+.nav-link{
+    color: #66fcf1 !important;
+}
+
+.navber{
+    background: rgba(0, 0, 0, .1rem);
+}
+
+.btn-main{
+    background-color:  #66fcf1 !important;
+    color: black;
+}
+                        /*---------------------------------------------landing page-------------------------------------------------------*/
+.hero{
+    background-color: #111c31;
+}
+
+.hero-post-content{
+    position: absolute;
+    bottom: 5px;
+    color: #66fcf1;
+}
+
+.hero-post-content img{
+    border: 3px solid #66fcf1;
+}
+.hero{
+    color: #66fcf1
+}
+.hero-post{
+    position: relative;
+}
+
+.hero-post img{
+    filter: grayscale(30%) brightness(0.8);
+}
+
+.programmers-img img{
+    border: 2px solid #66fcf1;
+}
+/*----------------------------------------------------------blog section-----------------------------------------------------------*/
+
+.blog-posts{
+    background-color: #0B0C10 ;
+    color: #66fcf1;
+}
+
+.blog-post{
+    background-color: #111c31;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+.blog-post img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*-------------------Badges-------------------------*/
+
+.badge{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.badge>a{
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    background-color: #66fcf1;
+    color: #111c31;
+    font-weight: 700;
+}
+
+
+/*----------------------------------------------------------Aside-----------------------------------------------------------------------*/
+
+
+.social-links{
+    background-color: #66fcf1;
+    color: #111c31;
+    font-size: 1.5rem;
+}
+
+.secondary-icon{
+    background-color: #1f2833;
+    color: #66fcf1;
+}
+.aside-heading{
+    border-left: 3px solid #66fcf1;
+}
+.badges{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.badges a{
+    margin-left: 0.5rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    background-color: #66fcf1;
+    color: #111c31;
+    font-weight: 700;
+    display: inline-block;
+
+}
+
+
+/*--------------------------------------------------content-------------------------------------------------*/
+.content-main{
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+.content{
+    background-color: #0B0C10;
+}
+
+
+a:hover{
+    text-decoration: none;
+    color: beige;
+}

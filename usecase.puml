@@ -1,0 +1,54 @@
+@startuml
+left to right direction
+
+actor Pengguna
+actor PetugasRegistrasi
+actor PetugasUjianTeori
+actor PetugasUjianPraktik
+actor PetugasPencetakan
+
+rectangle SistemSIM {
+  usecase DaftarPembuatanSIM
+  usecase IsiFormulir
+  usecase UnggahDokumen
+  usecase VerifikasiDokumen
+  usecase IkutiUjianTeori
+  usecase IkutiUjianPraktik
+  usecase LulusUjianTeori
+  usecase LulusUjianPraktik
+  usecase Pembayaran
+  usecase CetakSIM
+  usecase TerimaSIM
+}
+
+Pengguna -- DaftarPembuatanSIM
+DaftarPembuatanSIM -- IsiFormulir : include
+DaftarPembuatanSIM -- UnggahDokumen : include
+
+Pengguna -- IsiFormulir
+Pengguna -- UnggahDokumen
+
+PetugasRegistrasi -- VerifikasiDokumen
+VerifikasiDokumen -- DaftarPembuatanSIM : extends
+
+Pengguna -- IkutiUjianTeori
+PetugasUjianTeori -- IkutiUjianTeori
+
+Pengguna -- IkutiUjianPraktik
+PetugasUjianPraktik -- IkutiUjianPraktik
+
+IkutiUjianTeori -- LulusUjianTeori : include
+IkutiUjianPraktik -- LulusUjianPraktik : include
+
+LulusUjianTeori -- Pembayaran : extends
+LulusUjianPraktik -- Pembayaran : extends
+
+Pengguna -- Pembayaran
+
+PetugasPencetakan -- CetakSIM
+CetakSIM -- Pembayaran : extends
+
+Pengguna -- TerimaSIM
+TerimaSIM -- CetakSIM : extends
+
+@enduml

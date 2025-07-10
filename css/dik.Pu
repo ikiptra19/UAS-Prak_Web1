@@ -1,0 +1,100 @@
+@startuml
+skinparam backgroundColor #EEEFAF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam shadowing false
+
+package "DIKI SAPUTRA Website" {
+  node "Browser" {
+    [User]
+  }
+
+  rectangle "Website" as Web {
+    [Header]
+    [Navigation Bar]
+    [Biodata Section]
+    [Education Section]
+    [Vision & Mission Section]
+    [Social Media Section]
+    [Footer]
+    [Mode Toggle Button]
+    image "bangdik.jpg" as ProfileImage
+    rectangle "Biodata Table" as BiodataTable {
+      [Nama Lengkap]
+      [Email]
+      [Alamat Asal]
+      [Jenis Kelamin]
+      [Tempat, Tanggal Lahir]
+      [Nomor Telepon]
+      [Agama]
+      [Hobi]
+    }
+    rectangle "Education Table" as EducationTable {
+      [Jenjang]
+      [Nama Sekolah]
+      [SD]
+      [SMP]
+      [SMA]
+      [Universitas]
+    }
+    rectangle "Vision" as VisionBox {
+      note "Menjadi Mahasiswa yang bertalenta agar bisa berguna bagi bangsa" as VisionNote
+    }
+    rectangle "Mission" as MissionBox {
+      note "Membagikan pengetahuan dan pengalaman melalui artikel yang terpercaya dan berkualitas." as MissionPoint1
+      note "Membangun perusahaan sendiri yang bergerak dibidang informasi." as MissionPoint2
+      note "Menjalin kemitraan dengan yang memiliki visi yang sama dengan saya." as MissionPoint3
+      note "Terus mengikuti mengembangkan perusahaan sampai dengan sekala internasional" as MissionPoint4
+    }
+    rectangle "Social Media Links" as SocialMedia {
+      [Instagram Link]
+      [TikTok Link]
+      [Facebook Link]
+    }
+  }
+
+  User -- Web : Views
+  User -- Mode Toggle Button : Toggles Mode
+  User -- Instagram Link : Opens
+  User -- TikTok Link : Opens
+  User -- Facebook Link : Opens
+
+  Header -- ProfileImage
+  Header -- "Diki Saputra"
+  Header -- "Mahasiswa Universitas Mitra Indonesia"
+
+  Web -- Header
+  Web -- Navigation Bar
+  Web -- Biodata Section
+  Web -- Education Section
+  Web -- Vision & Mission Section
+  Web -- Social Media Section
+  Web -- Footer
+  Web -- Mode Toggle Button
+
+  NavigationBar -- "Biodata"
+  NavigationBar -- "Pendidikan"
+  NavigationBar -- "Visi & Misi"
+  NavigationBar -- "Media Sosial"
+
+  Biodata Section -- "Biodata Diri"
+  Biodata Section -- BiodataTable
+
+  Education Section -- "Riwayat Pendidikan"
+  Education Section -- EducationTable
+
+  Vision & Mission Section -- "Visi dan Misi"
+  Vision & Mission Section -- VisionBox
+  VisionBox -- VisionNote
+  Vision & Mission Section -- MissionBox
+  MissionBox -- MissionPoint1
+  MissionBox -- MissionPoint2
+  MissionBox -- MissionPoint3
+  MissionBox -- MissionPoint4
+
+  Social Media Section -- "Media Sosial"
+  Social Media Section -- SocialMedia
+
+  Footer -- "&copy; 2025 Diki Saputra. All Rights Reserved."
+}
+@enduml
