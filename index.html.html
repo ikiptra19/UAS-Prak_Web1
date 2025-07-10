@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DIKI SAPUTRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #333; /* Latar belakang hitam */
+            color: #ddd; /* Warna teks abu-abu terang */
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.9); /* Header sedikit transparan */
+            color: #ddd;
+            border-bottom: 4px solid #555; /* Garis bawah abu-abu */
+            position: relative;
+            z-index: 10;
+            animation: fadeInRotate 2s ease-in-out;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #555; /* Border abu-abu */
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            margin-right: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        header img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(85, 85, 85, 0.8);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            color: #eee; /* Warna teks abu-abu lebih terang */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1em;
+            color: #ccc; /* Warna teks abu-abu lebih redup */
+        }
+
+        header div {
+            text-align: left;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            background-color: #444; /* Navigasi abu-abu gelap */
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            /* animation: navBounce 1.5s infinite alternate; */ /* Animasi dihilangkan agar tidak terlalu ramai */
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1); /* Efek hover lebih halus */
+            transition: left 0.3s ease;
+        }
+
+        nav a:hover::before {
+            left: 0;
+        }
+
+        nav a:hover {
+            background-color: #555; /* Hover nav abu-abu lebih gelap */
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #222; /* Section hitam lebih gelap */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #eee;
+            margin-top: 0;
+            border-bottom: 4px solid #555;
+            padding-bottom: 8px;
+            font-size: 1.8em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #555;
+            color: #ddd;
+        }
+
+        td {
+            background-color: #333;
+        }
+
+        h3 {
+            color: #ddd;
+            margin-top: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: #ccc;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .social-links {
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 10px 15px;
+            color: #eee;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #888; /* Efek hover abu-abu lebih terang */
+            transform: scale(1.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #ccc;
+            border-top: 2px solid #555;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #mode-toggle {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #555, #777); /* Gradien abu-abu */
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        #mode-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="bangdik.jpg" alt="foto-bangdik">
+    <div>
+        <h1>Diki Saputra</h1>
+        <p>Mahasiswa Universitas Mitra Indonesia</p>
+    </div>
+</header>
+
+<nav>
+    <button id="mode-toggle">Mode Terang</button>
+    <a href="#biodata">Biodata</a>
+    <a href="#pendidikan">Pendidikan</a>
+    <a href="#visi-misi">Visi & Misi</a>
+    <a href="#sosial">Media Sosial</a>
+</nav>
+
+<section id="biodata">
+    <h2>Biodata Diri</h2>
+    <table>
+        <tr><th>Nama Lengkap</th><td>Diki Saputra</td></tr>
+        <tr><th>Email</th><td>dikisaputra070919@gmail.com</td></tr>
+        <tr><th>Alamat Asal</th><td>Kota LubukLinggau</td></tr>
+        <tr><th>Jenis Kelamin</th><td>Laki-Laki</td></tr>
+        <tr><th>Tempat, Tanggal Lahir</th><td>LubukLinggau, 19-juni-2004</td></tr>
+        <tr><th>Nomor Telepon</th><td>0831-2958-9371</td></tr>
+        <tr><th>Agama</th><td>Islam</td></tr>
+        <tr><th>Hobi</th><td>Tidur, Main Game, Memancing</td></tr>
+    </table>
+</section>
+
+<section id="pendidikan">
+    <h2>Riwayat Pendidikan</h2>
+    <table>
+        <tr><th>Jenjang</th><th>Nama Sekolah</th></tr>
+        <tr><td>SD</td><td>SDN 38 Kota LubukLinggau</td></tr>
+        <tr><td>SMP</td><td>SMP Bakti Ibu 11 LubukLinggau</td></tr>
+        <tr><td>SMA</td><td>SMK N 3 Kota LubukLinggau</td></tr>
+        <tr><td>Universitas</td><td>Universitas Mitra Indonesia</td></tr>
+    </table>
+</section>
+
+<section id="visi-misi">
+    <h2>Visi dan Misi</h2>
+    <h3>Visi</h3>
+    <p>Menjadi Mahasiswa yang bertalenta agar bisa berguna bagi bangsa </p>
+    <h3>Misi</h3>
+    <ul>
+        <li>Membagikan pengetahuan dan pengalaman melalui artikel yang terpercaya dan berkualitas.</li>
+        <li>Membangun perusahaan sendiri yang bergerak dibidang informasi.</li>
+        <li>Menjalin kemitraan dengan yang memiliki visi yang sama dengan saya.</li>
+        <li>Terus mengikuti mengembangkan perusahaan sampai dengan sekala internasional</li>
+    </ul>
+</section>
+
+<section id="sosial" class="social-links">
+    <h2>Media Sosial</h2>
+    <a href="https://instagram.com/kiiptra19" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/gwgapapa0" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.facebook.com/Ikii Sa'Pùtra" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+</section>
+
+<footer>
+    <p>&copy; 2025 Diki Saputra. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const toggleButton = document.getElementById('mode-toggle');
+    const body = document.body;
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    const sections = document.querySelectorAll('section');
+    const tableHeaders = document.querySelectorAll('th');
+    const tableData = document.querySelectorAll('td');
+    const footer = document.querySelector('footer');
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        header.classList.toggle('light-mode');
+        nav.classList.toggle('light-mode');
+        sections.forEach(section => section.classList.toggle('light-mode'));
+        tableHeaders.forEach(th => th.classList.toggle('light-mode'));
+        tableData.forEach(td => td.classList.toggle('light-mode'));
+        footer.classList.toggle('light-mode');
+        toggleButton.textContent = body.classList.contains('light-mode') ? 'Mode Gelap' : 'Mode Terang';
+    });
+
+    // Tambahkan kelas light-mode untuk tema terang (default)
+    body.classList.add('light-mode');
+    header.classList.add('light-mode');
+    nav.classList.add('light-mode');
+    sections.forEach(section => section.classList.add('light-mode'));
+    tableHeaders.forEach(th => th.classList.add('light-mode'));
+    tableData.forEach(td => td.classList.add('light-mode'));
+    footer.classList.add('light-mode');
+
+    // CSS untuk light mode (tema terang - kombinasi putih dan abu-abu)
+    const style = document.createElement('style');
+    style.textContent = `
+        .light-mode {
+            background-color: #f4f4f4 !important;
+            color: #333 !important;
+        }
+        .light-mode header {
+            background-color: rgba(240, 240, 240, 0.9) !important;
+            color: #333 !important;
+            border-bottom-color: #777 !important;
+        }
+        .light-mode header h1 {
+            color: #555 !important;
+        }
+        .light-mode header p {
+            color: #666 !important;
+        }
+        .light-mode header img {
+            border-color: #777 !important;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3) !important;
+        }
+        .light-mode header img:hover {
+            box-shadow: 0 0 20px rgba(119, 119, 119, 0.8) !important;
+        }
+        .light-mode nav {
+            background-color: #ddd !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+        }
+        .light-mode nav a {
+            color: #444 !important;
+        }
+        .light-mode nav a::before {
+            background: rgba(0, 0, 0, 0.05) !important;
+        }
+        .light-mode nav a:hover {
+            background-color: #eee !important;
+            color: #222 !important;
+        }
+        .light-mode section {
+            background-color: #fff !important;
+            color: #333 !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        .light-mode h2 {
+            color: #333 !important;
+            border-bottom-color: #777 !important;
+        }
+        .light-mode th {
+            background-color: #eee !important;
+            color: #444 !important;
+            border-color: #ccc !important;
+        }
+        .light-mode td {
+            background-color: #f9f9f9 !important;
+            color: #333 !important;
+            border-color: #ccc !important;
+        }
+        .light-mode h3 {
+            color: #555 !important;
+        }
+        .light-mode ul {
+            color: #666 !important;
+        }
+        .light-mode .social-links a {
+            color: #444 !important;
+        }
+        .light-mode .social-links a:hover {
+            color: #777 !important;
+        }
+        .light-mode footer {
+            background-color: #eee !important;
+            color: #555 !important;
+            border-top-color: #777 !important;
+        }
+        .light-mode #mode-toggle {
+            background: linear-gradient(135deg, #ddd, #eee) !important;
+            color: #333 !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+        .light-mode #mode-toggle:hover {
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+</body>
+</html>
